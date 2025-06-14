@@ -111,50 +111,52 @@ export default function RecipeMaker() {
       </h2>
 
       {matchingRecipes.length === 0 ? (
-        <p style={{ fontStyle: "italic", color: "#666", marginTop: 20 }}>
-          No matching recipes found.
-        </p>
-      ) : (
-        matchingRecipes.map((recipe) => (
-          <div
-            key={recipe.id}
-            style={{
-              backgroundColor: "#fff3e0",
-              marginTop: 24,
-              padding: 20,
-              borderRadius: 10,
-              boxShadow: "0 4px 8px rgba(0,0,0,0.08)",
-            }}
-          >
-            <h3 style={{ color: "#d35400" }}>{recipe.title}</h3>
-            <p style={{ fontWeight: "600", marginBottom: 12 }}>
-              Cook Time: <span style={{ fontWeight: "normal" }}>{recipe.cookTime}</span>
-            </p>
+  <p style={{ fontStyle: "italic", color: "darkblue", marginTop: 20 }}>
+    No matching recipes found.
+  </p>
+) : (
+  matchingRecipes.map((recipe) => (
+    <div
+      key={recipe.id}
+      style={{
+        backgroundColor: "#fff3e0",
+        marginTop: 24,
+        padding: 20,
+        borderRadius: 10,
+        boxShadow: "0 4px 8px rgba(0,0,0,0.08)",
+        color: "darkblue",  // Add this here to color text
+      }}
+    >
+      <h3 style={{ color: "#d35400" }}>{recipe.title}</h3>
+      <p style={{ fontWeight: "600", marginBottom: 12 }}>
+        Cook Time: <span style={{ fontWeight: "normal" }}>{recipe.cookTime}</span>
+      </p>
 
-            <div style={{ display: "flex", gap: 40, flexWrap: "wrap" }}>
-              <div style={{ flex: 1, minWidth: 250 }}>
-                <h4 style={{ borderBottom: "1px solid #d35400", paddingBottom: 4 }}>
-                  Ingredients
-                </h4>
-                <ul style={{ marginTop: 8, lineHeight: 1.6 }}>
-                  {recipe.ingredients.map((ing, i) => (
-                    <li key={i}>• {ing}</li>
-                  ))}
-                </ul>
-              </div>
+      <div style={{ display: "flex", gap: 40, flexWrap: "wrap" }}>
+        <div style={{ flex: 1, minWidth: 250 }}>
+          <h4 style={{ borderBottom: "1px solid #d35400", paddingBottom: 4 }}>
+            Ingredients
+          </h4>
+          <ul style={{ marginTop: 8, lineHeight: 1.6 }}>
+            {recipe.ingredients.map((ing, i) => (
+              <li key={i}>• {ing}</li>
+            ))}
+          </ul>
+        </div>
 
-              <div style={{ flex: 1, minWidth: 250 }}>
-                <h4 style={{ borderBottom: "1px solid #d35400", paddingBottom: 4 }}>Steps</h4>
-                <ol style={{ marginTop: 8, lineHeight: 1.6 }}>
-                  {recipe.steps.map((step, i) => (
-                    <li key={i}>{step}</li>
-                  ))}
-                </ol>
-              </div>
-            </div>
-          </div>
-        ))
-      )}
+        <div style={{ flex: 1, minWidth: 250 }}>
+          <h4 style={{ borderBottom: "1px solid #d35400", paddingBottom: 4 }}>Steps</h4>
+          <ol style={{ marginTop: 8, lineHeight: 1.6 }}>
+            {recipe.steps.map((step, i) => (
+              <li key={i}>{step}</li>
+            ))}
+          </ol>
+        </div>
+      </div>
+    </div>
+  ))
+)}
+
     </div>
   );
 }
